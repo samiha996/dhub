@@ -1,0 +1,11 @@
+<odoo>
+    <template id="inherit_website_sale_product" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <t t-if="product.school_logo">
+                <div>
+                    <img t-att-src="'data:image/png;base64,%s' %product.school_logo.decode('utf-8')" class="img img-fluid" style="height:300px" alt="School Image" />
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
