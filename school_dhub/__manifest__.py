@@ -17,12 +17,6 @@
         
     ],
     
-    'assets': {
-        'point_of_sale._assets_pos': [
-            'school_dhub/static/src/app/**/*',
-        ],
-         
-    },
     
     'application':True,
     'installable':True,
