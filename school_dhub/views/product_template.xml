@@ -1,0 +1,36 @@
+<odoo>
+    <record id="view_product_form_inherit_new_tab" model="ir.ui.view">
+        <field name="name">product.form.new.tab</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//page[@name='inventory']" position="after">
+                <page name="course_details" string="Course Details">
+                    <group>
+                        <group>
+                            <field name="min_age"/>
+                            <field name="start_date"/>
+                            <field name="day_name" invisible="1"/>
+                            <field name="study_time"/>
+                            <field name="max_students_class"/>
+                        </group>
+                        <group>
+                            <field name="lesson_per_week"/>
+                            <field name="hours_per_week"/>
+                            <field name="avg_students_class"/>
+                            <field name="required_level"/>
+                        </group>
+                        <group string="School Information">
+                            <field name="school_id"/>
+                            <field name="school_logo" widget="image" class="oe_avatar"/>
+                            <field name="school_url" widget="url"/>
+                            <field name="school_description"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

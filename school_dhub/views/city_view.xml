@@ -1,0 +1,41 @@
+<odoo>
+    <record id="city_list_view" model="ir.ui.view">
+        <field name="name">city.list.view</field>
+        <field name="model">city</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="population"/>
+            </tree>
+        </field>
+    </record>
+    <record id="city_form_view" model="ir.ui.view">
+        <field name="name">city.form.view</field>
+        <field name="model">city</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <div>
+                        <field name="name" class="oe_title"/>
+                        <field name="image" widget="image" class="o_field_image d-inline-block postion relative oe_avatar"/>
+
+                        </div>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="population"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="city_action" model="ir.actions.act_window">
+        <field name="name">City</field>
+        <field name="res_model">city</field>
+    </record>
+    <menuitem id="city_menu" name="Cities" parent="school_root_menu" action="city_action"/>
+</odoo>
