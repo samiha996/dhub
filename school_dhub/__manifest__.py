@@ -12,7 +12,6 @@
         'views/base_menu.xml',
         'views/school_view.xml',
         'views/city_view.xml',
-        'views/product_attribute_view.xml',
         'views/website_sale_search_box.xml',
         
     ],
