@@ -15,6 +15,12 @@
         'views/website_sale_search_box.xml',
         'views/product_attribute_view.xml',
     ],
+	'assets': {
+        "web.assets_backend": [
+            "school_dhub/static/src/js/product_template_attribute_line_ext.js",
+            "school_dhub/static/src/xml/product_template_attribute_line_inh.xml",
+        ],
+    },
     
     
     'application':True,
