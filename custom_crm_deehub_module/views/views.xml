@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_order_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree>
+                        <field name="name" string="Ticket / Order #"/>
+                        <field name="partner_id"/>
+                        <field name="order_line" widget="many2many_tags" string="Product"/>
+                        <field name="state" string="Ticket / Order Status"/>
+                        <field name="opportunity_id" string="Lead"/>
+                        <field name="substate_id"/>
+                        <field name="agent"/>
+                        <field name="study_country"/>
+                        <field name="lead_calls_count" string="Calls"/>
+                        <field name="invoice_ids" widget="many2many_tags" string="Invoices"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale_action_quotations_new_crm" model="ir.actions.act_window">
+            <field name="name">Tickets</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("opportunity_id", "!=", False)]</field>
+
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem id="menu_sale_crm"
+                  name="Tickets"
+                  parent="crm.crm_menu_sales"
+                  action="sale_action_quotations_new_crm"
+                  sequence="0"/>
+
+    </data>
+</odoo>
