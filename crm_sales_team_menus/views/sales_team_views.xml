@@ -1,0 +1,24 @@
+<odoo>
+    <!-- Create the UNIVERSITY menu under CRM Root and attach an action -->
+    <menuitem
+        id="crm_menu_university"
+        name="University"
+        parent="crm.crm_menu_root"
+        action="action_crm_university"
+        sequence="5"/>
+
+    <!-- Define the action for the UNIVERSITY menu -->
+    <record id="action_crm_university" model="ir.actions.act_window">
+        <field name="name">University</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">tree,form</field>
+         <field name="domain">[
+            ('type', '=', 'opportunity'),
+            ('team_id', '=', 5)
+        ]</field>
+        <field name="context">{
+            'default_team_id': 5,
+            'default_type': 'opportunity'
+        }</field>
+    </record>
+</odoo>

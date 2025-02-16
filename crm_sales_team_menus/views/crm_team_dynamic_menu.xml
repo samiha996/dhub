@@ -1,0 +1,17 @@
+<odoo>
+    <!-- Dynamic Action to View Opportunities for a Sales Team -->
+    <record id="action_crm_team_opportunities" model="ir.actions.act_window">
+        <field name="name">Sales Team Opportunities</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            ('type', '=', 'opportunity'),
+            ('team_id', '=', context.get('active_team_id', False))
+        ]</field>
+        <field name="context">{
+            'search_default_team_id': context.get('active_team_id', False),
+            'default_team_id': context.get('active_team_id', False),
+            'default_type': 'opportunity'
+        }</field>
+    </record>
+</odoo>

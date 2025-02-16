@@ -1,0 +1,34 @@
+<odoo>
+    <!-- Automatically Create Menus for Each Sales Team -->
+    <record id="ir_cron_generate_sales_team_menus" model="ir.cron">
+        <field name="name">Generate Sales Team Menus</field>
+        <field name="model_id" ref="crm.model_crm_team"/>
+        <field name="state">code</field>
+        <field name="code">
+teams = env['crm.team'].search([])
+menu_root = env.ref('crm.crm_menu_root')
+
+for team in teams:
+    menu = env['ir.ui.menu'].search([('name', '=', team.name), ('parent_id', '=', menu_root.id)], limit=1)
+    
+    if not menu:
+        action = env['ir.actions.act_window'].create({
+            'name': team.name + " Opportunities",
+            'res_model': 'crm.lead',
+            'view_mode': 'tree,form',
+            'domain': "[('type', '=', 'opportunity'), ('team_id', '=', %d)]" % team.id,
+            'context': "{'search_default_team_id': %d, 'default_team_id': %d, 'default_type': 'opportunity'}" % (team.id, team.id),
+        })
+
+        env['ir.ui.menu'].create({
+            'name': team.name,
+            'parent': 'crm.crm_menu_root',
+            'action': "ir.actions.act_window,%d" % action.id,
+            'sequence': 10,
+        })
+        </field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>
