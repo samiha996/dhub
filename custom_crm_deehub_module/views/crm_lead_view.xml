@@ -10,6 +10,9 @@
                     <field name="agent" string="Agent"/>
                     <field name="study_country" string="Study Country"/>
                 </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
             </field>
         </record>
 
