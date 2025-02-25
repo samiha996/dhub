@@ -20,10 +20,10 @@
           </page>
         </xpath>
         <xpath expr="//group[@name='opportunity_partner']" position="inside">
-          <field name="substate_id" string="Substate" />
+<!--           <field name="substate_id" string="Substate" /> -->
         </xpath>
         <xpath expr="//group[@name='lead_partner']" position="inside">
-          <field name="substate_id" string="Substate" />
+<!--           <field name="substate_id" string="Substate" /> -->
         </xpath>
       </field>
     </record>
