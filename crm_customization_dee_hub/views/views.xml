@@ -7,7 +7,7 @@
       <field name="inherit_id" ref="crm.crm_lead_view_form"/>
       <field name="arch" type="xml">
         <xpath expr="//page[@name='extra']" position="after">
-          <page name="mail_activities" string="Activities">
+          <page name="mail_activities" string="Calls">
             <field name="lead_call_ids">
               <tree create="true" editable="bottom">
                   <field name="summary" />
