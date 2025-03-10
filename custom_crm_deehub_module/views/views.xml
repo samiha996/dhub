@@ -36,7 +36,7 @@
             <field name="name">Won</field>
             <field name="res_model">crm.lead</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[("won_status", "=", 'won')]</field>
+            <field name="domain">[("is_won", "=", True)]</field>
             <field name="context">{}</field>
         </record>
 
@@ -44,8 +44,8 @@
             <field name="name">Lose</field>
             <field name="res_model">crm.lead</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[("won_status", "=", 'lost')]</field>
-            <field name="context">{'search_default_lost':'lost'}</field>
+            <field name="domain">[("is_lose", "=", True)]</field>
+<!--            <field name="context">{'search_default_lost':'lost'}</field>-->
         </record>
 
 
