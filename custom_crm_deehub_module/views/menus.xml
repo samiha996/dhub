@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="crm_menu_admin"
+                  name="Admin"
+                  parent="crm.crm_menu_root"
+                  sequence="0"/>
+
+        <menuitem id="menu_sale_crm"
+                  name="Tickets"
+                  parent="crm.crm_menu_sales"
+                  action="sale_action_quotations_new_crm"
+                  sequence="0"/>
+
+
+        <menuitem id="crm_menu_deal"
+                  name="Deals"
+                  parent="crm.crm_menu_root"
+                  sequence="0"/>
+
+        <menuitem id="menu_won_crm"
+                  name="Won"
+                  parent="custom_crm_deehub_module.crm_menu_deal"
+                  action="crm_action_won_leads"
+                  sequence="0"/>
+         <menuitem id="menu_lose_crm"
+                  name="Lose"
+                  parent="custom_crm_deehub_module.crm_menu_deal"
+                  action="crm_action_lose_leads"
+                  sequence="0"/>
+
+        <record model="ir.ui.menu" id="crm.crm_menu_sales">
+            <field name="parent_id" ref="crm_menu_admin"/>
+
+        </record>
+         <record model="ir.ui.menu" id="crm.crm_menu_report">
+            <field name="parent_id" ref="crm_menu_admin"/>
+        </record>
+         <record model="ir.ui.menu" id="crm.crm_menu_config">
+            <field name="parent_id" ref="crm_menu_admin"/>
+        </record>
+
+    </data>
+</odoo>

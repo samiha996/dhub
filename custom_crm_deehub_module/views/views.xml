@@ -29,15 +29,25 @@
             <field name="res_model">sale.order</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[("opportunity_id", "!=", False)]</field>
-
             <field name="context">{}</field>
         </record>
 
-        <menuitem id="menu_sale_crm"
-                  name="Tickets"
-                  parent="crm.crm_menu_sales"
-                  action="sale_action_quotations_new_crm"
-                  sequence="0"/>
+        <record id="crm_action_won_leads" model="ir.actions.act_window">
+            <field name="name">Won</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("won_status", "=", 'won')]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="crm_action_lose_leads" model="ir.actions.act_window">
+            <field name="name">Lose</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("won_status", "=", 'lost')]</field>
+            <field name="context">{'search_default_lost':'lost'}</field>
+        </record>
+
 
     </data>
 </odoo>
