@@ -8,6 +8,7 @@
         'security/crm_team_record_rule.xml',
         'security/crm_team_manager_rule.xml',
         'views/crm_team_dynamic_menu.xml',
+        'views/crm_product_menu.xml',
     ],
     'installable': True,
     'application': True,
