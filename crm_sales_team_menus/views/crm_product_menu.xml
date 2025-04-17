@@ -45,5 +45,19 @@
         sequence="2"
     />
 
+     <!-- Action: Attributes -->
+    <record id="crm_action_product_attribute" model="ir.actions.act_window">
+      <field name="name">Attributes</field>
+      <field name="res_model">product.attribute</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem 
+        id="crm_menu_product_attribute" 
+        name="Attributes" 
+        parent="crm_menu_products_root" 
+        action="crm_action_product_attribute"
+        sequence="3"
+    />
+
   </data>
 </odoo>
