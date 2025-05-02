@@ -1,0 +1,28 @@
+<odoo>
+    <!-- Renewal Menu -->
+    <menuitem id="menu_renewal_management_root"
+              name="Renewal Management"
+              sequence="100"
+              parent="crm.crm_menu_root"/>
+
+    <!-- Sale Orders Renewal View -->
+    <record id="action_sale_order_renewal" model="ir.actions.act_window">
+        <field name="name">Sale Orders for Renewal</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">
+            [('renew_due_date', '!=', False), 
+            ('renewal_followup_done', '=', False), 
+            '|',
+            ('renew_due_date', '=', (context_today() + relativedelta(days=1)).strftime('%Y-%m-%d')), 
+            ('renew_due_date', '&lt;', context_today().strftime('%Y-%m-%d'))]
+        </field>
+
+    </record>
+
+    <menuitem id="menu_sale_renewal"
+              name="Tickets"
+              parent="menu_renewal_management_root"
+              action="action_sale_order_renewal"/>
+
+</odoo>
