@@ -1,0 +1,48 @@
+<odoo>
+
+    <!-- Student ID Sequence -->
+    <record id="seq_student_id" model="ir.sequence">
+        <field name="name">Student ID</field>
+        <field name="code">student.id</field>
+        <field name="prefix">STUD-%(year)s-</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- CRM Lead Student ID view -->
+    <record id="view_crm_lead_form_student_id" model="ir.ui.view">
+        <field name="name">crm.lead.form.student.id</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='opportunity_partner']/field[@name='partner_id']" position="after">
+                <field name="x_student_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Sale Order Student ID view -->
+    <record id="view_sale_order_form_student_id" model="ir.ui.view">
+        <field name="name">sale.order.form.student.id</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="x_student_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_form_student_id" model="ir.ui.view">
+        <field name="name">res.partner.form.student.id</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="x_student_id" />
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
